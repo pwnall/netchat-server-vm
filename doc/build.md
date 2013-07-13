@@ -97,8 +97,8 @@ have OSX, install the two packages on the
     ```bash
     # ssh ubuntu@netchat.local
     sudo mkdir -p /etc/netchat
-    sudo touch /etc/netchat/game  # Set up the game server.
-    sudo touch /etc/netchat/metrics  # Set up the metrics server.
+    sudo touch /etc/netchat/web  # Set up the web server.
+    sudo touch /etc/netchat/chat  # Set up the chat server.
     ```
 
 11. Set up the server.

@@ -26,36 +26,16 @@ fi
 if [ ! -f /etc/netchat/prod.keys ] ; then
   sudo cp ~/vm/nginx/netchat-web.conf /etc/nginx/sites-available
 fi
-sudo chown root:root /etc/nginx/sites-available/netchat-game.conf
-sudo ln -s -f /etc/nginx/sites-available/netchat-game.conf \
-              /etc/nginx/sites-enabled/netchat-game.conf
+sudo chown root:root /etc/nginx/sites-available/netchat-web.conf
+sudo ln -s -f /etc/nginx/sites-available/netchat-web.conf \
+              /etc/nginx/sites-enabled/netchat-web.conf
 sudo rm -f /etc/nginx/sites-enabled/default
 
 # Load the new configuration into nginx.
 sudo /etc/init.d/nginx reload
 
-# Postgres.
-sudo apt-get install -y libpq-dev postgresql postgresql-client \
-    postgresql-contrib postgresql-server-dev-all
-if sudo -u postgres createuser --superuser $USER; then
-  # Don't attempt to re-create the user's database if the user already exists.
-  createdb $USER
-fi
-
-# Configure postgres to use ident authentication over TCP.
-sudo ruby <<"EOF"
-pg_file = Dir['/etc/postgresql/**/pg_hba.conf'].first
-lines = File.read(pg_file).split("\n")
-lines.each do |line|
-  next unless /^host.*127\.0\.0\.1.*md5$/ =~ line
-  line.gsub! 'md5', 'ident'
-end
-File.open(pg_file, 'w') { |f| f.write lines.join("\n") }
-EOF
-sudo /etc/init.d/postgresql restart
-
-# Ident server used by the node.js postgres connection.
-sudo apt-get install -y oidentd
+# Mysql.
+sudo apt-get install -y mysql-server mysql-client libmysqlclient-dev
 
 # node.js
 sudo add-apt-repository -y ppa:chris-lea/node.js
