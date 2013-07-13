@@ -5,13 +5,13 @@ set -o errexit  # Stop the script on the first error.
 set -o nounset  # Catch un-initialized variables.
 
 # Git URL.
-if [ -f /etc/netmap/prod.keys ] ; then
+if [ -f /etc/netchat/prod.keys ] ; then
   # In production, prod.keys points to the keys repository.
-  GIT_URL="$(cat /etc/netmap/prod.keys)"
+  GIT_URL="$(cat /etc/netchat/prod.keys)"
 fi
-if [ ! -f /etc/netmap/prod.keys ] ; then
+if [ ! -f /etc/netchat/prod.keys ] ; then
   # Use the public devkeys in the development VMs.
-  GIT_URL=https://netchat.pwnb.us/netchat/netchat-dev-keys.git
+  GIT_URL=https://git.pwnb.us/netchat/netchat-dev-keys.git
 fi
 
 # Git.
