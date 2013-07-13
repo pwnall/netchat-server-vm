@@ -11,7 +11,7 @@ if [ -f /etc/netchat/prod.keys ] ; then
 fi
 if [ ! -f /etc/netchat/prod.keys ] ; then
   # Use the public devkeys in the development VMs.
-  GIT_URL=https://git.pwnb.us/netchat/netchat-dev-keys.git
+  GIT_URL=https://github.com/pwnall/netchat-dev-keys.git
 fi
 
 # Git.

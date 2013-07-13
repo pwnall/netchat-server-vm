@@ -2,10 +2,10 @@
 # Idempotent server VM update script.
 
 # Git URL that allows un-authenticated pulls.
-GIT_PUBLIC_URL=https://git.pwnb.us/netchat/netchat-server-vm.git
+GIT_PUBLIC_URL=https://github.com/pwnall/netchat-server-vm.git
 
 # Git URL that allows pushes, but requires authentication.
-GIT_PUSH_URL=git@git.pwnb.us:netchat/netchat-server-vm.git
+GIT_PUSH_URL=git@github.com:pwnall/netchat-server-vm.git
 
 set -o errexit  # Stop the script on the first error.
 set -o nounset  # Catch un-initialized variables.

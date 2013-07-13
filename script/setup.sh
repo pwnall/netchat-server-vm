@@ -50,5 +50,5 @@ if [ "$USER" = "netchat" ] ; then
 fi
 
 # Download and run the update script.
-curl -fLsS https://git.pwnb.us/netchat/netchat-server-vm/raw/master/script/update.sh | \
+curl -fLsS https://github.com/pwnall/netchat-server-vm/raw/master/script/update.sh | \
     sudo -u netchat -i
