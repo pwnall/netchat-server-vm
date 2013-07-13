@@ -63,17 +63,15 @@ cd ~/vm
 script/update-keys.sh
 if [ -f /etc/netchat/prod.keys ] ; then
   # Production VMs
-  if [ -f /etc/netchat/metrics ] ; then
-    script/update-metrics.sh
-  fi
-  if [ -f /etc/netchat/game ] ; then
-    script/update-game.sh
+  if [ -f /etc/netchat/web ] ; then
+    script/update-web-deps.sh
+    script/update-web.sh
   fi
 fi
 if [ ! -f /etc/netchat/prod.keys ] ; then
   # Development VMs run all the servers in the same VM.
-  script/update-metrics.sh
-  script/update-game.sh
+  script/update-web-deps.sh
+  script/update-web.sh
 fi
 
 # Land in the user's home directory.

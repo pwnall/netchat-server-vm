@@ -105,7 +105,7 @@ have OSX, install the two packages on the
 
     ```bash
     # ssh ubuntu@netchat.local
-    curl -fLsS https://github.com/netchat/netchat-server-vm/raw/master/script/setup.sh | sh
+    curl -fLsS https://git.pwnb.us/netchat/netchat-server-vm/raw/master/script/setup.sh | sh
     ```
 
 12. Shut down the VM if you want to back up the disk image.
