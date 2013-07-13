@@ -21,10 +21,10 @@ sudo apt-get install -y nginx
 
 # nginx configuration for the web server.
 if [ -f /etc/netchat/prod.keys ] ; then
-  sudo cp ~/vm/nginx/prod/netchat-game.conf /etc/nginx/sites-available
+  sudo cp ~/vm/nginx/prod/netchat-web.conf /etc/nginx/sites-available
 fi
 if [ ! -f /etc/netchat/prod.keys ] ; then
-  sudo cp ~/vm/nginx/netchat-game.conf /etc/nginx/sites-available
+  sudo cp ~/vm/nginx/netchat-web.conf /etc/nginx/sites-available
 fi
 sudo chown root:root /etc/nginx/sites-available/netchat-game.conf
 sudo ln -s -f /etc/nginx/sites-available/netchat-game.conf \

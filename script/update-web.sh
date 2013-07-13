@@ -5,14 +5,14 @@ set -o errexit  # Stop the script on the first error.
 set -o nounset  # Catch un-initialized variables.
 
 # Git URL that allows un-authenticated pulls.
-GIT_PUBLIC_URL=git://github.com/netchat/netchat-game-server.git
+GIT_PUBLIC_URL=https://github.com/pwnall/netchat-server.git
 
 # Git URL that allows pushes, but requires authentication.
-GIT_PUSH_URL=git@github.com:netchat/netchat-game-server.git
+GIT_PUSH_URL=git@github.com:pwnall/netchat-server.git
 
-# If the game server repository is already checked out, update the code.
-if [ -d ~/game ] ; then
-  cd ~/game
+# If the web server repository is already checked out, update the code.
+if [ -d ~/web ] ; then
+  cd ~/web
   git checkout master
   git pull --ff-only "$GIT_PUBLIC_URL" master
   bundle install
